@@ -43,8 +43,8 @@ execute "redis-extract-source" do
 end
 
 ["redis-server", "redis-cli"].each do |item|
-  link "/sbin/#{item}" do
-    to "#{node.redis.dst_dir}/#{item}"
+  link "/usr/sbin/#{item}" do
+    to "#{node.redis.dst_dir}/bin/#{item}"
     only_if { node.redis.symlink_binaries }
   end
 end

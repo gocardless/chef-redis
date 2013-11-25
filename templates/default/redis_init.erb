@@ -30,6 +30,7 @@ EXEC=<%= node.redis.dst_dir %>/redis-server
 CLIEXEC=<%= node.redis.dst_dir %>/redis-cli
 <% end %>
 
+PASSWORD="<%= node.redis.config.requirepass.to_s %>"
 PIDFILE=<%= @pidfile %>
 CONF="<%= @conf_dir %>/<%= @name %>.conf"
 
@@ -63,7 +64,7 @@ case "$1" in
         else
                 PID=$(cat $PIDFILE)
                 echo "Stopping ..."
-                $CLIEXEC -p $REDISPORT shutdown
+                $CLIEXEC -p $REDISPORT -a "$PASSWORD" shutdown
                 while [ -x /proc/${PID} ]
                 do
                     echo "Waiting for Redis to shutdown ..."

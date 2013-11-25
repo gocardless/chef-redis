@@ -15,6 +15,7 @@ def load_current_resource
   end
     
   new_resource.configure_no_appendfsync_on_rewrite
+  new_resource.configure_requirepass
   new_resource.configure_slowlog
   new_resource.configure_list_max_ziplist
   new_resource.configure_maxmemory_samples
@@ -94,6 +95,7 @@ def create_config
     source "redis.conf.erb"
     owner "root"
     group "root"
+    cookbook "redis"
     mode 00644
     variables :config => new_resource.state
     case new_resource.init_style
@@ -132,6 +134,7 @@ def create_service_script
       source "redis_init.erb"
       owner "root"
       group "root"
+      cookbook "redis"
       mode 00755
       variables new_resource.to_hash
     end
