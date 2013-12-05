@@ -96,7 +96,7 @@ def create_config
     owner "root"
     group "root"
     cookbook "redis"
-    mode 00644
+    mode 00640
     variables :config => new_resource.state
     case new_resource.init_style
     when "init"
