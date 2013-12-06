@@ -94,7 +94,7 @@ def create_config
   template "#{new_resource.conf_dir}/#{new_resource.name}.conf" do
     source "redis.conf.erb"
     owner "root"
-    group "root"
+    group "redis"
     cookbook "redis"
     mode 00640
     variables :config => new_resource.state
