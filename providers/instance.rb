@@ -10,10 +10,6 @@ def load_current_resource
   new_resource.slaveof_ip   new_resource.slaveof_ip
   new_resource.slaveof_port new_resource.slaveof_port || node.redis.config.port
 
-  if new_resource.slaveof_ip || new_resource.slaveof
-    new_resource.slaveof      new_resource.slaveof || "#{new_resource.slaveof_ip} #{new_resource.slaveof_port}"
-  end
-    
   new_resource.configure_no_appendfsync_on_rewrite
   new_resource.configure_requirepass
   new_resource.configure_slowlog
