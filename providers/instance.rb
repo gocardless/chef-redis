@@ -15,6 +15,7 @@ def load_current_resource
 
   new_resource.configure_no_appendfsync_on_rewrite
   new_resource.configure_requirepass
+  new_resource.configure_masterauth
   new_resource.configure_slowlog
   new_resource.configure_list_max_ziplist
   new_resource.configure_maxmemory_samples

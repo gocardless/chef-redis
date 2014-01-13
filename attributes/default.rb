@@ -70,6 +70,9 @@ default.redis.config.hash_max_ziplist_value = 64
 default.redis.config.configure_requirepass = false
 default.redis.config.requirepass = "password"
 
+default.redis.config.configure_masterauth = false
+default.redis.config.masterauth = "password"
+
 # replication
 default.redis.replication.enabled = false
 default.redis.replication.redis_replication_role = 'master' # or slave

@@ -32,6 +32,10 @@ attribute :slaveof_port,   :kind_of => Integer, :default => nil
 attribute :configure_requirepass,               :kind_of => [TrueClass, FalseClass], :default => false
 attribute :requirepass,                         :kind_of => String, :default => nil
 
+# master password
+attribute :configure_masterauth,               :kind_of => [TrueClass, FalseClass], :default => false
+attribute :masterauth,                         :kind_of => String, :default => nil
+
 ###
 ## the following configuration settings may only work with a recent redis release
 ###
@@ -87,7 +91,8 @@ state_attrs(
  :slaveof,
             
  :requirepass,
- 
+ :masterauth,
+
  :slowlog_log_slower_than,
  :slowlog_max_len,
 
