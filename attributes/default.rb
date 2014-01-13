@@ -71,7 +71,7 @@ default.redis.config.configure_requirepass = false
 default.redis.config.requirepass = "password"
 
 default.redis.config.configure_masterauth = false
-default.redis.config.masterauth = "password"
+default.redis.config.masterauth = nil
 
 # replication
 default.redis.replication.enabled = false
